@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zrgk.entity">
+	<!-- 配置类与表的对应，属性与字段对应 -->	
+	<class name="Paper"  table="paper" lazy="true">
+		<!-- 配置主键属性与主键字段的映射 -->
+		<id  name="pid"  column="pid"  type="java.lang.Integer">
+			<!-- 配置主键的生成策略   assigned:由程序员自己指定 -->
+			      <generator class="identity"/>  
+		</id>
+		<!-- 配置关系属性 -->
+		<many-to-one unique="true" name="student" class="Student"
+		 column="sid" ></many-to-one>
+		<!--<one-to-one  name="student" class="Student"
+		 column="sid" ></one-to-one> 注意这里用one-to-one的话，就没有collum属性了-->
+		<!-- 配置的是普通属性与字段的映射关系 -->
+		<property name="pdesc" type="string"></property>
+		
+	</class>
+</hibernate-mapping>

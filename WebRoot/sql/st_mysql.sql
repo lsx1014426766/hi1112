@@ -1,0 +1,84 @@
+DROP TABLE IF EXISTS GRADE ;
+/*班级表*/
+CREATE TABLE GRADE(
+ GID INT(11) NOT NULL,
+ GNAME VARCHAR(10) NOT NULL,
+ GDESC VARCHAR(50)
+);
+ALTER TABLE GRADE ADD PRIMARY KEY(GID);
+
+
+DROP TABLE IF EXISTS STUDENT;
+/*学生表*/
+CREATE TABLE STUDENT
+(
+  SID   INT(11) NOT NULL,
+  SNAME VARCHAR(10) NOT NULL,
+  SEX   CHAR(2),
+  GID   INT(11)
+);
+
+ALTER TABLE STUDENT
+  ADD PRIMARY KEY (SID);
+
+ALTER TABLE STUDENT
+  ADD CONSTRAINT STU_FOREIGN_GID FOREIGN KEY (GID)
+  REFERENCES GRADE (GID);
+
+DROP TABLE IF EXISTS COURSE ;
+ /* Create table  课程表*/
+CREATE TABLE COURSE
+(
+  CID   INT(11) NOT NULL,
+  CNAME VARCHAR(20) NOT NULL,
+  CDESC VARCHAR(50)
+)
+
+/* Create/Recreate primary, unique and foreign key constraints */
+ALTER TABLE COURSE ADD PRIMARY KEY (CID);
+  
+
+DROP TABLE IF EXISTS  SC ;
+  /* Create table   学生和课程的中间表*/
+CREATE TABLE SC
+(
+  SID INT(11),
+  CID INT(11)
+)
+
+/* Create/Recreate primary, unique and foreign key constraints */
+ALTER TABLE SC
+  ADD CONSTRAINT CID_FK FOREIGN KEY (CID)
+  REFERENCES COURSE (CID);
+ALTER TABLE SC
+  ADD CONSTRAINT SID_FK FOREIGN KEY (SID)
+  REFERENCES STUDENT (SID);
+
+
+/* Create table   学生证表*/
+DROP TABLE IF EXISTS PAPER;
+CREATE TABLE PAPER
+(
+  PID   INT(11) NOT NULL,
+  SID   INT(11) NOT NULL,
+  PDESC VARCHAR(50)
+);
+
+/* Create/Recreate primary, unique and foreign key constraints */
+/*学生证*/
+ALTER TABLE PAPER
+  ADD PRIMARY KEY (PID);
+ 
+ALTER TABLE PAPER
+  ADD CONSTRAINT PAPER_FK_SID FOREIGN KEY (SID)
+  REFERENCES STUDENT (SID);
+
+
+
+ /*不能删除主键表，有外键关联*/
+
+
+
+select * from student;
+select * from grade;
+select * from paper;
