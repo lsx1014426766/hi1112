@@ -27,10 +27,10 @@ public class TestHibernate1 {
 		// 4.开启事务  对于增删改 需要打开事务
 		Transaction tx = session.beginTransaction();
 		User u = new User();
-		u.setId(4);
+		u.setId(7);
 		u.setAge(30);
 		u.setEmail("guojing@163.com");
-		u.setName("的");
+		u.setName("低调低调");
 		u.setBirthday(new Date());
 		u.setSalary(4000.75);
 		//5.对User对象进行操作
@@ -45,14 +45,15 @@ public class TestHibernate1 {
 //		User u2 = new User();
 //		u2.setId(3);
 //		session.delete(u2);
-		// 修改
-	/*	tx=session.beginTransaction();
-		User u3  = (User)session.get(User.class, 3);
+		// 修改 事务要重新开始
+		tx.begin();
+		User u3  = (User)session.get(User.class, 7);
 		System.out.println("修改前："+u3.getName());
 		u3.setName("小龙女");
 		u3.setAge(120);
 		session.update(u3);
-		System.out.println("修改后："+u3.getName());*/
+		System.out.println("修改后："+u3.getName());
+		tx.commit();//本例分别提交
 		session.close();
 		sf.close();
 	}

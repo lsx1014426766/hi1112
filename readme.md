@@ -78,3 +78,12 @@ Configuration conf =
   <mapping resource="com/zrgk/mapping/User.hbm.xml"/>
   
 注意这里的资源路径包名，类名   之间一律用反斜杠！否则会报出找不到mapping错误
+
+9Testhibernate1.java
+  session.save(user); 在执行插入时遇到db 编码非utf-8导致插入失败问题
+  
+  解决方法：在db设置database的编码，重新执行ExportDB
+        
+        因为没有指定程序连接时的编码所以跟db的设置保持了一致
+        
+
