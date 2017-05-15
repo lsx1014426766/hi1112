@@ -18,9 +18,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-  </head>
-  
+	<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="js/ImageBrowsing.js"></script>
+	<script type="text/javascript" src="js/My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function(){
+ browse('f1','d1',200,200);});
+ </script>
+ </head>
   <body>
-    This is my JSP page. <br>
+   <input type="text" name="c" readonly="readonly" onclick="WdatePicker();"/>
+  <input type="file" name="f1" id="f1"/>
+  <div id="d1">
+  <img  src="" id="i1"/>
+  </div>
   </body>
 </html>

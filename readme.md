@@ -1,5 +1,9 @@
 hibernate知识点
-此项目重在测试，通过Junit Test方法，不涉及web部分
+此项目重在测试，通过Junit Test方法
+
+在页面上测试calendar日期插件，My97DatePicker
+
+localhost:8080/hi1112/index.jsp
 
 1.配置文件 hibernate.cfg.xml文件，默认放在src根目录下，当加载配合文件时无需指定：
 	//可以置空不写
@@ -86,4 +90,18 @@ Configuration conf =
         
         因为没有指定程序连接时的编码所以跟db的设置保持了一致
         
+8eclipse部署问题：
+   
+   1使用eclipse，选择本地tomcat,部署项目位于eclipse>workspace>metadata下的某个目录，
+          并不在tomcat下的webapp里！
+         通过eclipse--server配置，不可选
+         
+  2要更改项目的名字，项目》右击》properties>在resouces,webroot下修改，再重新部署启动
+  
+9 ImageBrowsing.js 上传图片后，直接在下方显示，还未请求后台接口的时候
+  
+   browse('f1','d1',200,200);
+   
+10 My97DatePicker/WdatePicker.js的使用
 
+   <input type="text" name="c" readonly="readonly" onclick="WdatePicker();"/>
