@@ -8,11 +8,17 @@
 		<!-- 配置主键属性与主键字段的映射 -->
 		<id  name="gid"  column="gid"  type="java.lang.Integer">
 			<!-- 配置主键的生成策略   assigned:由程序员自己指定 改为mysql -->
-			
             <generator class="identity"/>  
 		</id>
+		<!-- 配置与学生的关系属性 -->
+		<!-- inverse: 反转，关系交给谁来维护   true: 对方维护   false：本方维护，建议：关系交给多方维护 -->
+		<!-- inverse:  可以提升性能，在添加的时候，少输出update语句 -->
+		
 		<!-- 配置关系属性 -->
-		<set name="students"  cascade="all">
+		<set name="students"  
+		 	 lazy="true"
+			 cascade="all"  
+			 inverse="true">
 		<key column="gid"></key>
 		<one-to-many class="Student"/>
 		</set>

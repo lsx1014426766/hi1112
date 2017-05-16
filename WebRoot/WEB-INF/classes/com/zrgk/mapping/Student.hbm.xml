@@ -11,11 +11,24 @@
 			      <generator class="identity"/>  
 		</id>
 		<!-- 配置关系属性 -->
+		<!-- property-ref:  参照Paper类的关系属性student来间接获得外键 -->
+		
 		<one-to-one name="paper" class="Paper" cascade="all" 
 		property-ref="student"></one-to-one>
 		<many-to-one name="grade" class="Grade" column="gid" cascade="none"></many-to-one>
 		<!-- 配置的是普通属性与字段的映射关系 -->
 		<property name="sname" type="string"></property>
-		<property name="sex"  column="sex"  type="java.lang.String"></property>		  
+		<property name="sex"  column="sex"  type="java.lang.String"></property>		
+		<!-- 配置与课程的多对多的关系 -->
+		<!-- 配置三表俩外键 -->
+		<set name="courses" table="sc" 
+			  inverse="true"
+			  lazy="true"
+			  cascade="all">
+			<key column="sid"></key>
+			<many-to-many column="cid" 
+			class="Course"></many-to-many>
+		</set>
+		  
 	</class>
 </hibernate-mapping>

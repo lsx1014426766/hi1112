@@ -1,6 +1,8 @@
 package com.zrgk.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 //学生类
 public class Student implements Serializable {
@@ -13,9 +15,20 @@ public class Student implements Serializable {
 	//添加关系属性  表达多个学生在一个班级
 	private Grade grade;
 	// 外键gid这里就不写了，只是用来维护关系用
+	//添加关系属性  一个学生可以选多个课程
+		private Set<Course>  courses =
+			new HashSet<Course>();
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Set<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
 	}
 
 	public int getSid() {

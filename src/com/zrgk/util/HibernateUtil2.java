@@ -16,6 +16,10 @@ public class HibernateUtil2 {
 	}
 	
 	public static Session  getSession(){
+		//另一种获取session的方法   
+				//只是获取session的方法不同，用线程，一个用户只使用一个sesion对象
+				//用本地线程控制session的创建，将session放在了threadLocal中
+
 		Session session = threadLocal.get();
 		if(session==null || !session.isOpen()){
 			// 第一次连接数据库

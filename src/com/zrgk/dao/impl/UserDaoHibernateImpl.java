@@ -56,6 +56,8 @@ public class UserDaoHibernateImpl implements IUserDao {
 		try{
 			session = HibernateUtil1.getSession();
 			// hql语句
+			// hql语句  执行全查时用到了hql语句
+			//是面向对象的，语句中不出现和table表和字段相关的内容！
 			String  hql ="select u from User u";
 			//执行hql语句
 			Query query = session.createQuery(hql);
@@ -89,6 +91,8 @@ public class UserDaoHibernateImpl implements IUserDao {
 			session = HibernateUtil1.getSession();
 			tx = session.beginTransaction();
 			session.save(u);
+			//获取session，获取事务，执行操作，提交/回滚  关闭session
+			
 			tx.commit();
 		}catch(Exception e){
 			e.printStackTrace();
