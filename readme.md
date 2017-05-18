@@ -105,3 +105,7 @@ Configuration conf =
 10 My97DatePicker/WdatePicker.js的使用
 
    <input type="text" name="c" readonly="readonly" onclick="WdatePicker();"/>
+
+ 未解决问题：  
+    /hi1112/src/com/zrgk/test/OneToOnePKTest.java
+   IncompatibleClassChangeError: Implementing class 包冲突  还没找到原因

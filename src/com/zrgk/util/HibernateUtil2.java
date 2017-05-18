@@ -3,7 +3,6 @@ package com.zrgk.util;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.context.ThreadLocalSessionContext;
 
 // 获取session对象的工具类
 public class HibernateUtil2 {

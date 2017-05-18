@@ -48,5 +48,8 @@
 		<mapping resource="com/zrgk/mapping/Dept.hbm.xml" />
         <mapping resource="com/zrgk/mapping/Lsx1.hbm.xml" />
         
+        <!-- 注解类 -->
+         <mapping  class="com.zrgk.entity.Husband" />
+          <mapping  class="com.zrgk.entity.Wife" />
     </session-factory>
 </hibernate-configuration>

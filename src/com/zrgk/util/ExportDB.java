@@ -81,6 +81,8 @@ public class ExportDB {
 		//cfg.addFile("config/hibernate/hibernate.cfg.xml");
 		//hbm2ddl
 		SchemaExport export = new SchemaExport(cfg);
+		//void org.hibernate.tool.
+		//hbm2ddl.SchemaExport.create(boolean script, boolean export)
 		export.create(true, true);
 		}
 }
