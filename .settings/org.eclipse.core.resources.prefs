@@ -1,3 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/com/pb/hibernate/dao/LoginDao.java=UTF-8
+encoding//src/com/pb/hibernate/dao/impl/LoginDaoImpl.java=UTF-8
+encoding//src/com/pb/hibernate/po=UTF-8
+encoding//src/com/pb/hibernate/test/TestLogin.java=UTF-8
+encoding//src/com/pb/hibernate/util/HibernateUtil.java=UTF-8
 encoding//src/com/zrgk/entity/Husband.java=UTF-8
 encoding//src/com/zrgk/entity/Wife.java=UTF-8

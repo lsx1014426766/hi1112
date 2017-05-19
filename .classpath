@@ -27,5 +27,9 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/swarmcache-1.0RC2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate-annotations-3.5.6-Final.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.25-bin.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javassist-3.11.0.GA.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

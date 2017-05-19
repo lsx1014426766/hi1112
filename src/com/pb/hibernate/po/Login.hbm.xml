@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.pb.hibernate.po">
+
+    <class name="Login" table="LOGIN">
+        <id name="username" column="USERNAME" type="java.lang.String">
+            <generator class="assigned"/>
+        </id>
+        <property name="password" type="java.lang.String" column="PASSWORD"/>
+        <property name="age" type="java.lang.Integer" column="AGE"/>
+    </class>
+    <!--调用插入记录的存储过程-->
+	<sql-query name="loginInsert">
+	    {call login_insert(?,?,?)}
+	</sql-query>
+	<!--调用更新记录的存储过程-->
+	<sql-query name="loginUpdate">
+	    {call login_update(?)}
+	</sql-query>
+	<!--调用删除记录的存储过程-->
+	<sql-query name="loginDelete">
+	    {call login_delete(?)}
+	</sql-query>
+	<!--调用查询的存储过程-->
+	<sql-query name="loginGetList" callable="true">
+	    {call login_getlist()}
+	    <return alias="l" class="com.pb.hibernate.po.Login">
+	    <return-property name="username" column="username"/>
+	     <return-property name="password" column="password"/>
+	      <return-property name="age" column="age"/>
+	    </return>
+	</sql-query>
+    
+</hibernate-mapping>
