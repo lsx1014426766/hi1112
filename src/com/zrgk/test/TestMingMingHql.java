@@ -8,13 +8,13 @@ import org.junit.Test;
 
 import com.zrgk.entity.Emp;
 import com.zrgk.util.HibernateUtil1;
-//ÃüÃû»¯hql
+//å‘½ååŒ–hql
 public class TestMingMingHql {
 	@Test
 	public void test1(){
 		Session session = HibernateUtil1.getSession();
 		Query query = session.getNamedQuery("findEmpByHql");
-		query.setString(0,"ÕÅÈı·á");
+		query.setString(0,"å¼ ä¸‰ä¸°");
 		query.setDouble(1, 15000.0);
 		List<Emp> list = query.list();
 		for(Emp e:list){

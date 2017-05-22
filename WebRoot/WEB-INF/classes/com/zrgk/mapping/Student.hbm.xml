@@ -21,14 +21,14 @@
 		<property name="sex"  column="sex"  type="java.lang.String"></property>		
 		<!-- 配置与课程的多对多的关系 -->
 		<!-- 配置三表俩外键 -->
-		<!-- <set name="courses" table="sc" 
+		<set name="courses" table="sc" 
 			  inverse="true"
 			  lazy="true"
 			  cascade="all">
 			<key column="sid"></key>
 			<many-to-many column="cid" 
 			class="Course"></many-to-many>
-		</set> -->
+		</set>
 		  
 	</class>
 </hibernate-mapping>

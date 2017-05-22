@@ -11,7 +11,7 @@
          <property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property> 
         <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="myeclipse.connection.profile">oracle_driver</property>-->
-        <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+       <!--  <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property> -->
        <!-- mysql连接 -->
         <property name="connection.url">jdbc:mysql://localhost:3306/test</property> 
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -41,6 +41,7 @@
 	
 	<!-- 指定实体映射文件的位置 -->
         <mapping resource="com/zrgk/mapping/Paper.hbm.xml"/>
+        <mapping resource="com/zrgk/mapping/Course.hbm.xml"/>
         <mapping resource="com/zrgk/mapping/Student.hbm.xml"/>
         <mapping resource="com/zrgk/mapping/Grade.hbm.xml"/>
         <mapping resource="com/zrgk/mapping/User.hbm.xml"/>

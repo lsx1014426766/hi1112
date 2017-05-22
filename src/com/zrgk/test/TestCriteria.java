@@ -22,9 +22,9 @@ public class TestCriteria {
 		Session session = HibernateUtil1.getSession();
 		Criteria c = 
 			session.createCriteria(Dept.class);
-		//c.add(Restrictions.eq("dname","ÑĞ·¢²¿"));
-		// µÈ¼ÛÓÚ£º    String sql ="select * from dept_myc where dname lile %·¢%";
-		c.add(Restrictions.like("dname", "%²Æ%"));
+		//c.add(Restrictions.eq("dname","ç ”å‘éƒ¨"));
+		// ç­‰ä»·äºï¼š    String sql ="select * from dept_myc where dname lile %å‘%";
+		c.add(Restrictions.like("dname", "%è´¢%"));
 		List<Dept> list = c.list();
 		System.out.println(list.size());
 		for(Dept d:list){
@@ -38,7 +38,7 @@ public class TestCriteria {
 		Criteria c = session.createCriteria(Emp.class);
 		// select * from emp_myc where salary>3000 order by salary desc; 
 		c.add(Restrictions.gt("salary", 3000.0));
-		//°´ÕÕsalaryÊôĞÔ    ½µĞòÅÅĞò
+		//æŒ‰ç…§salaryå±æ€§    é™åºæ’åº
 		c.addOrder(Order.desc("salary"));
 		List<Emp> list = c.list();
 		for(Emp e:list){
@@ -64,7 +64,7 @@ public class TestCriteria {
 		for(Double d:list){
 			System.out.println(d);
 		}
-		// ²é¿´¼¯ºÏÖĞ·â×°µÄÊÇ Ê²Ã´ÀàĞÍµÄ¶ÔÏó
+		// æŸ¥çœ‹é›†åˆä¸­å°è£…çš„æ˜¯ ä»€ä¹ˆç±»å‹çš„å¯¹è±¡
 		System.out.println(list.get(0).getClass().getName());
 	}
 	
@@ -88,7 +88,7 @@ public class TestCriteria {
 		Session session = HibernateUtil1.getSession();
 		Criteria c = 
 			session.createCriteria(Emp.class);
-		//criteria  ·ÖÒ³
+		//criteria  åˆ†é¡µ
 		c.setFirstResult(6);
 		c.setMaxResults(5);
 		List<Emp> list = c.list();

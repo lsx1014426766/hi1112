@@ -8,7 +8,7 @@ import com.zrgk.util.HibernateUtil1;
 
 public class TestHibernate2 {
 
-	/**采用工具类抽离封装的方式
+	/**閲囩敤宸ュ叿绫绘娊绂诲皝瑁呯殑鏂瑰紡
 	 * @param args
 	 */
 	public static void main(String[] args) {

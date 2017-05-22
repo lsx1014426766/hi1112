@@ -6,9 +6,9 @@ import org.hibernate.Session;
 import org.junit.Test;
 import com.zrgk.entity.Student;
 import com.zrgk.util.HibernateUtil1;
-// hqlÓï¾ä
+// hqlè¯­å¥
 public class TestHql {
-	// ²éÑ¯ËùÓĞµÄÊôĞÔµÄÖµ
+	// æŸ¥è¯¢æ‰€æœ‰çš„å±æ€§çš„å€¼
 	@Test
 	public void test1(){
 		Session session = HibernateUtil1.getSession();
@@ -23,7 +23,7 @@ public class TestHql {
 		}
 	}
 	
-	// ²éÑ¯²¿·ÖÊôĞÔµÄÖµ   ·µ»ØµÄÖµObjectÊı×éÀàĞÍ
+	// æŸ¥è¯¢éƒ¨åˆ†å±æ€§çš„å€¼   è¿”å›çš„å€¼Objectæ•°ç»„ç±»å‹
 	@Test
 	public void test2(){
 		Session session = HibernateUtil1.getSession();
@@ -31,11 +31,11 @@ public class TestHql {
 		Query query = session.createQuery(hql);
 		List<Object[]> list = query.list();
 		for(Object [] obj:list){
-			System.out.println("ĞÕÃû£º"+obj[0]+"ĞÔ±ğ£º"+obj[1]);
+			System.out.println("å§“åï¼š"+obj[0]+"æ€§åˆ«ï¼š"+obj[1]);
 			
 		}
 	}
-	// ²éÑ¯²¿·ÖÊôĞÔµÄÖµ   ·µ»ØµÄStudentÀàĞÍ
+	// æŸ¥è¯¢éƒ¨åˆ†å±æ€§çš„å€¼   è¿”å›çš„Studentç±»å‹
 	@Test
 	public void test3(){
 		Session session = HibernateUtil1.getSession();
@@ -53,10 +53,10 @@ public class TestHql {
 		String hql ="from Student where sname=:name and sex=:s";
 		Session session = HibernateUtil1.getSession();
 		Query query = session.createQuery(hql);
-		// hibernateÎÊºÅÊÇ´Ó0¿ªÊ¼ ¸øÎÊºÅÉèÖÃÖµ
-//		query.setString(0,"ÀîÄª³î");
+		// hibernateé—®å·æ˜¯ä»0å¼€å§‹ ç»™é—®å·è®¾ç½®å€¼
+//		query.setString(0,"æè«æ„");
 //		query.setString(1,"m ");
-		query.setString("name", "ÀîÄª³î");
+		query.setString("name", "æè«æ„");
 		query.setString("s", "m ");
 		List<Student>  list = query.list();
 		System.out.println(list.size());

@@ -4,9 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-// »ñÈ¡session¶ÔÏóµÄ¹¤¾ßÀà
+// è·å–sessionå¯¹è±¡çš„å·¥å…·ç±»
 public class HibernateUtil2 {
-	//½«µ±Ç°ÓÃ»§µÄsession¶ÔÏó°ó¶¨µ½threadLocalÉÏ
+	//å°†å½“å‰ç”¨æˆ·çš„sessionå¯¹è±¡ç»‘å®šåˆ°threadLocalä¸Š
 	private static ThreadLocal<Session> threadLocal = 
 				  new ThreadLocal<Session>();
 	private static SessionFactory sf;
@@ -15,15 +15,15 @@ public class HibernateUtil2 {
 	}
 	
 	public static Session  getSession(){
-		//ÁíÒ»ÖÖ»ñÈ¡sessionµÄ·½·¨   
-				//Ö»ÊÇ»ñÈ¡sessionµÄ·½·¨²»Í¬£¬ÓÃÏß³Ì£¬Ò»¸öÓÃ»§Ö»Ê¹ÓÃÒ»¸ösesion¶ÔÏó
-				//ÓÃ±¾µØÏß³Ì¿ØÖÆsessionµÄ´´½¨£¬½«session·ÅÔÚÁËthreadLocalÖĞ
+		//å¦ä¸€ç§è·å–sessionçš„æ–¹æ³•   
+				//åªæ˜¯è·å–sessionçš„æ–¹æ³•ä¸åŒï¼Œç”¨çº¿ç¨‹ï¼Œä¸€ä¸ªç”¨æˆ·åªä½¿ç”¨ä¸€ä¸ªsesionå¯¹è±¡
+				//ç”¨æœ¬åœ°çº¿ç¨‹æ§åˆ¶sessionçš„åˆ›å»ºï¼Œå°†sessionæ”¾åœ¨äº†threadLocalä¸­
 
 		Session session = threadLocal.get();
 		if(session==null || !session.isOpen()){
-			// µÚÒ»´ÎÁ¬½ÓÊı¾İ¿â
+			// ç¬¬ä¸€æ¬¡è¿æ¥æ•°æ®åº“
 			session = sf.openSession();
-			//½«session´æ·Åµ½threadLocalÖĞ  ·½±ãÏÂ´Î²Ù×÷»ñÈ¡
+			//å°†sessionå­˜æ”¾åˆ°threadLocalä¸­  æ–¹ä¾¿ä¸‹æ¬¡æ“ä½œè·å–
 			threadLocal.set(session);
 		}
 		return session;

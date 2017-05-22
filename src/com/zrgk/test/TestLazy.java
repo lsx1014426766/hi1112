@@ -5,18 +5,18 @@ import org.hibernate.Session;
 import com.zrgk.entity.User;
 import com.zrgk.util.HibernateUtil1;
 
-//ÀÁ¼ÓÔØ
+//æ‡’åŠ è½½
 public class TestLazy {
 	public static void main(String[] args) {
 		Session session = HibernateUtil1.getSession();
-		// Á¢¼´¼ÓÔØget·½·¨// Á¢¼´¼ÓÔØ   ×¢ÒâÕâÀïµÄidÊÇ´æÔÚµÄ²Å¿ÉÒÔ£¬·ñÔòµ÷ÓÃÊ±ÕÒ²»µ½»á±¨¿ÕÖ¸ÕëÒì³£µÄ£¡
+		// ç«‹å³åŠ è½½getæ–¹æ³•// ç«‹å³åŠ è½½   æ³¨æ„è¿™é‡Œçš„idæ˜¯å­˜åœ¨çš„æ‰å¯ä»¥ï¼Œå¦åˆ™è°ƒç”¨æ—¶æ‰¾ä¸åˆ°ä¼šæŠ¥ç©ºæŒ‡é’ˆå¼‚å¸¸çš„ï¼
 		//User u1 = (User)session.get(User.class, 1);
-		//ÑÓ³Ù¼ÓÔØ (ÀÁ¼ÓÔØ)load·½·¨ ´ËÊ±µÃµ½µÄÊÇ´úÀí¶ÔÏó£¬debug²é¿´ÊôĞÔÖµ½ÔÎª¿Õ
-		//ÑÓ³Ù¼ÓÔØ (ÀÁ¼ÓÔØ)   µ÷ÓÃÊ±ÕÒ²»µ½»á±¨org.hibernate.ObjectNotFoundException:
+		//å»¶è¿ŸåŠ è½½ (æ‡’åŠ è½½)loadæ–¹æ³• æ­¤æ—¶å¾—åˆ°çš„æ˜¯ä»£ç†å¯¹è±¡ï¼ŒdebugæŸ¥çœ‹å±æ€§å€¼çš†ä¸ºç©º
+		//å»¶è¿ŸåŠ è½½ (æ‡’åŠ è½½)   è°ƒç”¨æ—¶æ‰¾ä¸åˆ°ä¼šæŠ¥org.hibernate.ObjectNotFoundException:
 
 		User u = (User)session.load(User.class, 1);
-		//System.out.println(u.getName());//ĞèÒªÊ±ÔÙÈ¥²é
-//		session.close();//  session²»ÄÜÌáÇ°¹Ø±Õ 
+		//System.out.println(u.getName());//éœ€è¦æ—¶å†å»æŸ¥
+//		session.close();//  sessionä¸èƒ½æå‰å…³é—­ 
 //		System.out.println(u.getId());//1
 //		System.out.println(u.getName());
 	}

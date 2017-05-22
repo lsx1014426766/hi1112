@@ -11,28 +11,40 @@ import com.zrgk.entity.Paper;
 import com.zrgk.entity.Student;
 import com.zrgk.util.HibernateUtil1;
 /**
- * Ñ§Éú---¡·Äê¼¶  ¶à¶ÔÒ»
+ * å­¦ç”Ÿ---ã€‹å¹´çº§  å¤šå¯¹ä¸€
  * @author lsx
  *
  */
 public class TestManyToOne {
+	/**
+Caused by: java.sql.SQLException: Incorrect string value: '\xE4\xB8\x80\xE5\xB9\xB4...' for column 'GNAME' at row 1
+ç¼–ç é—®é¢˜ï¼š
+  1javaæ–‡ä»¶ç¼–ç gbk
+  2dbé€šè¿‡ç¨‹åºåˆ›å»ºè¡¨æœ‰é—®é¢˜ï¼Œé‡æ–°åˆ›å»º
+  3ç”Ÿæˆè¡¨çš„ç¼–ç é—®é¢˜
+  4åº“çš„ç¼–ç é—®é¢˜
+ 
+ é€ æˆé”™è¯¯åŸå› ï¼šå¤šæ–¹é¢æ–‡ä»¶çš„ç¼–ç é—®é¢˜ä¸ä¸€è‡´é€ æˆçš„
+ é‡æ–°å»ºè¡¨ï¼Œæ³¨æ„æŸ¥çœ‹è¡¨çš„è‡ªå¢æ˜¯å¦åœ¨dbå±‚é¢ç”Ÿæ•ˆ  æœ‰æ—¶å€™å°±ä¸ä¼šåŠ ä¸Š åŸå› ä¸æ˜
+
+	 */
 	@Test
-	public void testAdd() {////¼¶ÁªÌí¼Ó
+	public void testAdd() {////çº§è”æ·»åŠ 
 		Session session = HibernateUtil1.getSession();
 		Grade g = new Grade();
 		g.setGdesc("java1412");
-		g.setGname("Ò»Äê¼¶");
+		g.setGname("ä¸€å¹´çº§");
 
 		Student s2 = new Student();
 		s2.setSex("m");
-		s2.setSname("ÀöÔÆ");
+		s2.setSname("ä¸½äº‘");
 		Student s3 = new Student();
 		s3.setSex("m");
-		s3.setSname("½ğÃû");
+		s3.setSname("é‡‘å");
 		Student s4 = new Student();
 		s4.setSex("m");
-		s4.setSname("ÅîÅî");
-		//Ïà»¥Ö®¼ä¶¼ÒªÌí¼ÓºÃ¹ØÏµ
+		s4.setSname("è“¬è“¬");
+		//ç›¸äº’ä¹‹é—´éƒ½è¦æ·»åŠ å¥½å…³ç³»
 		g.getStudents().add(s2);
 		g.getStudents().add(s3);
 		g.getStudents().add(s4);
@@ -43,31 +55,31 @@ public class TestManyToOne {
 
 		Transaction tx = session.beginTransaction();
 		session.save(g);
-		// ×¢ÒâÕâÀïÖ»ÓĞÉèÖÃ¼¶ÁªµÄ»°£¬
-		// ²Å¿ÉÒÔÖ»Í¨¹ıÒ»´Îsave(g)²åÈë³É¹¦
-		// ·ñÔò¾Í±ØĞëÏÈ²åÈëÑ§Éú²ÅÄÜÖ´ĞĞ²åÈë°à¼¶³É¹¦
+		// æ³¨æ„è¿™é‡Œåªæœ‰è®¾ç½®çº§è”çš„è¯ï¼Œ
+		// æ‰å¯ä»¥åªé€šè¿‡ä¸€æ¬¡save(g)æ’å…¥æˆåŠŸ
+		// å¦åˆ™å°±å¿…é¡»å…ˆæ’å…¥å­¦ç”Ÿæ‰èƒ½æ‰§è¡Œæ’å…¥ç­çº§æˆåŠŸ
 		tx.commit();
 		HibernateUtil1.closeSession();
 	}
-	// ²»ÓÃ¼¶ÁªÌí¼Ó
+	// ä¸ç”¨çº§è”æ·»åŠ 
 		@Test
 		public void testAdd2(){
 			Session session = HibernateUtil1.getSession();
 			Transaction tx = session.beginTransaction();
 			Grade g = new Grade();
-			g.setGdesc("java1414ÊÇ¸öºÃ°à¼¶");
+			g.setGdesc("java1414æ˜¯ä¸ªå¥½ç­çº§");
 			g.setGname("java1414");
 			
 			Student s1 = new Student();
 			s1.setSex("m");
-			s1.setSname("ÇÇ·å");
+			s1.setSname("ä¹”å³°");
 			
 			
 			Student s2 = new Student();
 			s2.setSex("m");
-			s2.setSname("¶ÎÓş");
+			s2.setSname("æ®µèª‰");
 			
-			//Ìí¼Ó¹ØÏµ
+			//æ·»åŠ å…³ç³»
 			g.getStudents().add(s1);
 			g.getStudents().add(s2);
 			s1.setGrade(g);
@@ -81,7 +93,7 @@ public class TestManyToOne {
 		}
 
 	@Test
-	// ÉèÖÃÁË¼¶Áª
+	// è®¾ç½®äº†çº§è”
 	public void testFind() {
 		Session session = HibernateUtil1.getSession();
 		Grade g = (Grade) session.get(Grade.class, 20);
@@ -93,7 +105,7 @@ public class TestManyToOne {
 	}
 
 	@Test
-	// ÉèÖÃÁË¼¶Áª
+	// è®¾ç½®äº†çº§è”
 	public void testDelete() {
 		Session session = HibernateUtil1.getSession();
 		Grade g = (Grade) session.get(Grade.class, 20);
@@ -107,9 +119,9 @@ public class TestManyToOne {
 		Session session = HibernateUtil1.getSession();
 	    Grade g =(Grade) session.get(Grade.class, 24);
 	    System.out.println("dffdsfs"+g.getGname());
-	    //ÕâÀïÒª×¢ÒâÖ÷¼üÊÇ²»ÄÜ±»ĞŞ¸ÄµÄ£¬ÒòÎªËüÊÇ×÷Îª²Ù×÷µÄ²éÑ¯Ïî´æÔÚµÄ
-	    //Õâ¾ÍÊÇËü´æÔÚµÄÒâÒå£¬¶ÔËü½øĞĞ²Ù×÷ÊÇÃ»ÓĞÒâÒåµÄ£¬ËüÖ»ÄÜ×÷Îª²Î¿¼Ïî£¬¹ØÁªÏî
-	    g.setGname("¸ß¼¶°à");
+	    //è¿™é‡Œè¦æ³¨æ„ä¸»é”®æ˜¯ä¸èƒ½è¢«ä¿®æ”¹çš„ï¼Œå› ä¸ºå®ƒæ˜¯ä½œä¸ºæ“ä½œçš„æŸ¥è¯¢é¡¹å­˜åœ¨çš„
+	    //è¿™å°±æ˜¯å®ƒå­˜åœ¨çš„æ„ä¹‰ï¼Œå¯¹å®ƒè¿›è¡Œæ“ä½œæ˜¯æ²¡æœ‰æ„ä¹‰çš„ï¼Œå®ƒåªèƒ½ä½œä¸ºå‚è€ƒé¡¹ï¼Œå…³è”é¡¹
+	    g.setGname("é«˜çº§ç­");
 	    session.update(g);
 	    Transaction tx = session.beginTransaction();
 	    tx.commit();

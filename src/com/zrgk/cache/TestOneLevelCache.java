@@ -5,21 +5,21 @@ import org.hibernate.Session;
 import com.zrgk.entity.Emp;
 import com.zrgk.util.HibernateUtil1;
 
-//Ò»¼¶»º´æ(Ä¬ÈÏÊÇ¿ªÆôµÄ)
+//ä¸€çº§ç¼“å­˜(é»˜è®¤æ˜¯å¼€å¯çš„)
 public class TestOneLevelCache {
 	public static void main(String[] args) {
 		Session session =
 			HibernateUtil1.getSession();
 		Emp e = (Emp)session.get(Emp.class, 1001);
 		System.out.println(e.getEname());
-		// ´ÓÒ»¼¶»º´æÖĞ  ²»»á·ÃÎÊÊı¾İ¿â
+		// ä»ä¸€çº§ç¼“å­˜ä¸­  ä¸ä¼šè®¿é—®æ•°æ®åº“
 		Emp e2= (Emp)session.get(Emp.class, 1001);
 		System.out.println(e2.getEname());
 		
 		Emp e3= (Emp)session.get(Emp.class, 1012);
 		System.out.println(e3.getEname());
-		session.close();// session¹Ø±Õ¾Í½«session»º´æÖĞµÄÊı¾İÇå¿Õ
-//		session.clear(); Çå¿ÕsessionÒ»¼¶»º´æÖĞµÄÊı¾İ
+		session.close();// sessionå…³é—­å°±å°†sessionç¼“å­˜ä¸­çš„æ•°æ®æ¸…ç©º
+//		session.clear(); æ¸…ç©ºsessionä¸€çº§ç¼“å­˜ä¸­çš„æ•°æ®
 		System.out.println("------------------");
 		session= HibernateUtil1.getSession();
 		Emp e4 = (Emp)session.get(Emp.class, 1001);

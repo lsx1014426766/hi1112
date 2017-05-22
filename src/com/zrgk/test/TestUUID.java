@@ -2,7 +2,7 @@ package com.zrgk.test;
 
 import java.util.UUID;
 
-// UUID(32Î» 16½øÖÆµÄ×Ö·û´®)
+// UUID(32ä½ 16è¿›åˆ¶çš„å­—ç¬¦ä¸²)
 public class TestUUID {
 	public static void main(String[] args) {
 		UUID uuid = UUID.randomUUID();

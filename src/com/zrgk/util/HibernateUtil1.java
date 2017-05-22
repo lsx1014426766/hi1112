@@ -8,12 +8,12 @@ import org.hibernate.cfg.Configuration;
  * Configures and provides access to Hibernate sessions, tied to the
  * current thread of execution.  Follows the Thread Local Session
  * pattern, see {@link http://hibernate.org/42.html }.
- * ½«hibernate²Ù×÷µÄ¹«¹²²¿·ÖÌáÈ¡³öÀ´£¬·â×°³É¹¤¾ßÀà£¬
- * °üÀ¨£º
- *   ÅäÖÃÎÄ¼şµÄ¼ÓÔØ
- *   session ¹¤³§µÄ´´½¨
- *   sessionµÄ¿ªÆôºÍ¹Ø±Õ
- * HibernateUtil1ºÍ2ÊÇÏàÍ¬µÄ£¬Ö»ÊÇÉú³É·½Ê½²»Í¬£¬1ÊÇ¹¤¾ßÉú³É£¬2ÊÇÊÖ¶¯Ğ´µÄ
+ * å°†hibernateæ“ä½œçš„å…¬å…±éƒ¨åˆ†æå–å‡ºæ¥ï¼Œå°è£…æˆå·¥å…·ç±»ï¼Œ
+ * åŒ…æ‹¬ï¼š
+ *   é…ç½®æ–‡ä»¶çš„åŠ è½½
+ *   session å·¥å‚çš„åˆ›å»º
+ *   sessionçš„å¼€å¯å’Œå…³é—­
+ * HibernateUtil1å’Œ2æ˜¯ç›¸åŒçš„ï¼Œåªæ˜¯ç”Ÿæˆæ–¹å¼ä¸åŒï¼Œ1æ˜¯å·¥å…·ç”Ÿæˆï¼Œ2æ˜¯æ‰‹åŠ¨å†™çš„
  */
 public class HibernateUtil1 {
 

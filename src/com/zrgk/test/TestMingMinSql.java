@@ -8,14 +8,14 @@ import org.junit.Test;
 
 import com.zrgk.entity.Emp;
 import com.zrgk.util.HibernateUtil1;
-//ÃüÃû»¯sql
+//å‘½ååŒ–sql
 public class TestMingMinSql {
 	@Test
 	public void test1(){
 		Session session = HibernateUtil1.getSession();
-		// ÃüÃû»¯sqlÓï¾ä  ½«QueryÇ¿×ªÎªSQLQuery
+		// å‘½ååŒ–sqlè¯­å¥  å°†Queryå¼ºè½¬ä¸ºSQLQuery
 		SQLQuery query = (SQLQuery)session.getNamedQuery("findUserBySql");
-		query.setString(0, "ÕÅÈı·á");
+		query.setString(0, "å¼ ä¸‰ä¸°");
 		query.setDouble(1, 15000.0);
 		List<Emp>list = query.list();
 		for(Emp e:list){

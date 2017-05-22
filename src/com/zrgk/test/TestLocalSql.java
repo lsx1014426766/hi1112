@@ -6,16 +6,16 @@ import org.hibernate.Session;
 import org.junit.Test;
 import com.zrgk.entity.Emp;
 import com.zrgk.util.HibernateUtil1;
-// 本地sql
+// 鏈湴sql
 public class TestLocalSql{
 	@Test
 	public  void  test1(){
 		Session session = HibernateUtil1.getSession();
 		String sql= "select e.* from emp_myc e";
-		// 执行本地sql
+		// 鎵ц鏈湴sql
 		SQLQuery sqlQuery = 
 			session.createSQLQuery(sql);
-		// 指定将结果集转换为什么类型的对象
+		// 鎸囧畾灏嗙粨鏋滈泦杞崲涓轰粈涔堢被鍨嬬殑瀵硅薄
 		sqlQuery = sqlQuery.addEntity(Emp.class);
 		List<Emp> list = sqlQuery.list();
 		for(Emp e:list){

@@ -6,3 +6,5 @@ encoding//src/com/pb/hibernate/test/TestLogin.java=UTF-8
 encoding//src/com/pb/hibernate/util/HibernateUtil.java=UTF-8
 encoding//src/com/zrgk/entity/Husband.java=UTF-8
 encoding//src/com/zrgk/entity/Wife.java=UTF-8
+encoding//src/com/zrgk/test/TestManyToOne.java=UTF-8
+encoding/<project>=UTF-8

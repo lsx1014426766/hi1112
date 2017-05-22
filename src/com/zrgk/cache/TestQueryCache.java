@@ -7,15 +7,15 @@ import org.hibernate.Session;
 import com.zrgk.entity.Emp;
 import com.zrgk.util.HibernateUtil1;
 
-//²éÑ¯»º´æ ¿ÉÒÔ»º´æ hql²éÑ¯³öÀ´µÄ¶ÔÏó
+//æŸ¥è¯¢ç¼“å­˜ å¯ä»¥ç¼“å­˜ hqlæŸ¥è¯¢å‡ºæ¥çš„å¯¹è±¡
 public class TestQueryCache {
 	public static void main(String[] args) {
 		Session session = HibernateUtil1.getSession();
 		String hql ="from Emp where ename=?";
 		Query query = session.createQuery(hql);
-		//È·ÈÏ  Ê¹ÓÃ²éÑ¯»º´æ 
+		//ç¡®è®¤  ä½¿ç”¨æŸ¥è¯¢ç¼“å­˜ 
 		query.setCacheable(true);
-		query.setString(0, "ÕÅÎŞ¼É");
+		query.setString(0, "å¼ æ— å¿Œ");
 		Emp e= (Emp)query.uniqueResult();
 		System.out.println(e.getEname());
 		
@@ -24,15 +24,15 @@ public class TestQueryCache {
 		
 		
 		query2.setCacheable(true);
-		query2.setString(0, "ÕÅÎŞ¼É");
+		query2.setString(0, "å¼ æ— å¿Œ");
 		Emp e2 = (Emp)query2.uniqueResult();
 		System.out.println(e2.getEname());
 		
-		//¹ÜÀí »º´æ
+		//ç®¡ç† ç¼“å­˜
 		//session.evict(e);
 		//sf.evict(e);
 		
-		// Ëø»úÖÆ  ±¯¹ÛËø
+		// é”æœºåˆ¶  æ‚²è§‚é”
 		//session.get(Emp.class, 1001,LockMode.UPGRADE);
 		
 	}

@@ -10,14 +10,14 @@
 		<property name="cname"></property>
 		<property name="cdesc"></property>
 		<!-- 配置与学生的多对多的关系属性 -->
-		<!-- <set name="students"
+		<set name="students"
 		 	 lazy="true"
 		 	 table="sc"
 			 cascade="none">
 			<key column="cid"></key>
 			<many-to-many column="sid"   class="Student">
 			</many-to-many>
-		</set> -->
+		</set>
 	
 	
 	</class>

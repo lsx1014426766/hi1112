@@ -13,7 +13,7 @@ import com.zrgk.util.HibernateUtil1;
 
 public class TestHql1 {
 	
-	//hqlÊµÏÖ ·Ö×é+ÅÅĞò
+	//hqlå®ç° åˆ†ç»„+æ’åº
 	@Test
 	public void test1(){
 		Session session = HibernateUtil1.getSession();
@@ -22,12 +22,12 @@ public class TestHql1 {
 		Iterator<Object []> it = query.iterate();
 		while(it.hasNext()){
 			Object[] obj = it.next();
-			System.out.println("Ö°Î»£º"+obj[0]+"ÈËÊı£º"+obj[1]);
+			System.out.println("èŒä½ï¼š"+obj[0]+"äººæ•°ï¼š"+obj[1]);
 		}
 		session.close();
 	}
 	
-	//hql ÊµÏÖ¶à¸öÀàÁ¬½Ó£¨ÄÚÁ¬½Ó£©   Ã¿¸öÔ±¹¤À´×ÔÄÄ¸ö²¿ÃÅ£¨Ô±¹¤Ãû³Æ,²¿ÃÅÃû³Æ£©lsx!!!
+	//hql å®ç°å¤šä¸ªç±»è¿æ¥ï¼ˆå†…è¿æ¥ï¼‰   æ¯ä¸ªå‘˜å·¥æ¥è‡ªå“ªä¸ªéƒ¨é—¨ï¼ˆå‘˜å·¥åç§°,éƒ¨é—¨åç§°ï¼‰lsx!!!
 	@Test
 	public void test2(){
 		Session session = HibernateUtil1.getSession();
@@ -37,25 +37,25 @@ public class TestHql1 {
 		Iterator<Object []> it = query.iterate();
 		while(it.hasNext()){
 			Object[] obj = it.next();
-			System.out.println("ĞÕÃû£º"+obj[0]+"²¿ÃÅÃû³Æ£º"+obj[1]);
+			System.out.println("å§“åï¼š"+obj[0]+"éƒ¨é—¨åç§°ï¼š"+obj[1]);
 		}
 		session.close();
 	}
 	
-	//hql ÊµÏÖ¶à¸öÀàÁ¬½Ó£¨ÍâÁ¬½Ó£©   Ã¿¸öÔ±¹¤À´×ÔÄÄ¸ö²¿ÃÅ£¨Ô±¹¤Ãû³Æ,²¿ÃÅÃû³Æ£©×öÁËÍâæI¹ØÁª
+	//hql å®ç°å¤šä¸ªç±»è¿æ¥ï¼ˆå¤–è¿æ¥ï¼‰   æ¯ä¸ªå‘˜å·¥æ¥è‡ªå“ªä¸ªéƒ¨é—¨ï¼ˆå‘˜å·¥åç§°,éƒ¨é—¨åç§°ï¼‰åšäº†å¤–éµå…³è”
 	@Test
 	public void test3(){
 		Session session = HibernateUtil1.getSession();
-		String hql ="select e.ename,nvl(d.dname,'Ã»ÓĞ²¿ÃÅ') from Emp  e left join e.dept d";
+		String hql ="select e.ename,nvl(d.dname,'æ²¡æœ‰éƒ¨é—¨') from Emp  e left join e.dept d";
 		Query query = session.createQuery(hql);
 		Iterator<Object []> it = query.iterate();
 		while(it.hasNext()){
 			Object[] obj = it.next();
-			System.out.println("ĞÕÃû£º"+obj[0]+"²¿ÃÅÃû³Æ£º"+obj[1]);
+			System.out.println("å§“åï¼š"+obj[0]+"éƒ¨é—¨åç§°ï¼š"+obj[1]);
 		}
 		session.close();
 	}
-	//°´ÕÕ²¿ÃÅ·Ö×é £¨²¿ÃÅÃû³Æ£¬ ²¿ÃÅÈËÊı£©²¿ÃÅÈËÊı³¬¹ı2ÈËµÄ   ÔÙ°´ÕÕ²¿ÃÅÈËÊı½µĞò
+	//æŒ‰ç…§éƒ¨é—¨åˆ†ç»„ ï¼ˆéƒ¨é—¨åç§°ï¼Œ éƒ¨é—¨äººæ•°ï¼‰éƒ¨é—¨äººæ•°è¶…è¿‡2äººçš„   å†æŒ‰ç…§éƒ¨é—¨äººæ•°é™åº
 	@Test
 	public void test4(){
 		Session session = HibernateUtil1.getSession();
@@ -64,11 +64,11 @@ public class TestHql1 {
 		Iterator<Object []> it = query.iterate();
 		while(it.hasNext()){
 			Object[] obj = it.next();
-			System.out.println("²¿ÃÅÃû³Æ£º"+obj[0]+"²¿ÃÅÈËÊı£º"+obj[1]);
+			System.out.println("éƒ¨é—¨åç§°ï¼š"+obj[0]+"éƒ¨é—¨äººæ•°ï¼š"+obj[1]);
 		}
 		session.close();
 	}
-	//°´ÕÕ²¿ÃÅ·Ö×é£¨²¿ÃÅÃû³Æ£¬Æ½¾ùĞ½Ë®£©   Æ½¾ùĞ½Ë®>=5000    °´ÕÕÆ½¾ùĞ½Ë®½µĞòÅÅĞò
+	//æŒ‰ç…§éƒ¨é—¨åˆ†ç»„ï¼ˆéƒ¨é—¨åç§°ï¼Œå¹³å‡è–ªæ°´ï¼‰   å¹³å‡è–ªæ°´>=5000    æŒ‰ç…§å¹³å‡è–ªæ°´é™åºæ’åº
 	@Test
 	public void test5(){
 		Session session = HibernateUtil1.getSession();
@@ -77,20 +77,20 @@ public class TestHql1 {
 		Iterator<Object []> it = query.iterate();
 		while(it.hasNext()){
 			Object[] obj = it.next();
-			System.out.println("²¿ÃÅÃû³Æ£º"+obj[0]+":²¿ÃÅÆ½¾ùĞ½Ë®£º"+obj[1]);
+			System.out.println("éƒ¨é—¨åç§°ï¼š"+obj[0]+":éƒ¨é—¨å¹³å‡è–ªæ°´ï¼š"+obj[1]);
 		}
 		session.close();
 	}
 	
-	//hql·ÖÒ³
+	//hqlåˆ†é¡µ
 	@Test
 	public  void test6(){
 		Session session = HibernateUtil1.getSession();
 		String hql ="from Emp";
 		Query query = session.createQuery(hql);
-		// µ±Ç°Ò³¿ªÊ¼µÄĞòºÅ
+		// å½“å‰é¡µå¼€å§‹çš„åºå·
 		query.setFirstResult(5);
-		//Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ
+		//æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡
 		query.setMaxResults(5);
 		List<Emp> list = query.list();
 		for(Emp e:list){

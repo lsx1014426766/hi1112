@@ -9,51 +9,51 @@ import org.hibernate.cfg.Configuration;
 
 import com.zrgk.entity.User;
 /**
- * Ô­Ê¼·½Ê½
- * Ò»¸öÍêÕûµÄÀûÓÃhibernate½øĞĞdb²Ù×÷µÄÁ÷³Ì
+ * åŸå§‹æ–¹å¼
+ * ä¸€ä¸ªå®Œæ•´çš„åˆ©ç”¨hibernateè¿›è¡Œdbæ“ä½œçš„æµç¨‹
  * @author lsx
  *
  */
 public class TestHibernate1 {
 	public static void main(String[] args) {
-		//1.¼ÓÔØÖ÷ÅäÖÃÎÄ¼ş
+		//1.åŠ è½½ä¸»é…ç½®æ–‡ä»¶
 		Configuration conf = 
 			new Configuration().configure("hibernate.cfg.xml");
-		//2.»ñÈ¡session¹¤³§
+		//2.è·å–sessionå·¥å‚
 		SessionFactory sf = conf.buildSessionFactory();
-		//3.¸ù¾İsession¹¤³§¶ÔÏó »ñÈ¡Ò»¸ösession¶ÔÏó   
-		// session¶ÔÏóÊÇ¶ÔÔ­Ê¼Connection¶ÔÏóµÄ·â×°
+		//3.æ ¹æ®sessionå·¥å‚å¯¹è±¡ è·å–ä¸€ä¸ªsessionå¯¹è±¡   
+		// sessionå¯¹è±¡æ˜¯å¯¹åŸå§‹Connectionå¯¹è±¡çš„å°è£…
 		Session session = sf.openSession();
-		// 4.¿ªÆôÊÂÎñ  ¶ÔÓÚÔöÉ¾¸Ä ĞèÒª´ò¿ªÊÂÎñ
+		// 4.å¼€å¯äº‹åŠ¡  å¯¹äºå¢åˆ æ”¹ éœ€è¦æ‰“å¼€äº‹åŠ¡
 		Transaction tx = session.beginTransaction();
 		User u = new User();
 		u.setId(7);
 		u.setAge(30);
 		u.setEmail("guojing@163.com");
-		u.setName("µÍµ÷µÍµ÷");
+		u.setName("ä½è°ƒä½è°ƒ");
 		u.setBirthday(new Date());
 		u.setSalary(4000.75);
-		//5.¶ÔUser¶ÔÏó½øĞĞ²Ù×÷
+		//5.å¯¹Userå¯¹è±¡è¿›è¡Œæ“ä½œ
 		session.save(u);
 	
-		tx.commit();// ÊÂÎñÌá½»
-		// ²éÑ¯   
+		tx.commit();// äº‹åŠ¡æäº¤
+		// æŸ¥è¯¢   
 //		User u  = (User)session.get(User.class,3);
 //		System.out.println(u.getName());
-		// É¾³ı
+		// åˆ é™¤
 		//User u2 = (User)session.get(User.class,3);
 //		User u2 = new User();
 //		u2.setId(3);
 //		session.delete(u2);
-		// ĞŞ¸Ä ÊÂÎñÒªÖØĞÂ¿ªÊ¼
+		// ä¿®æ”¹ äº‹åŠ¡è¦é‡æ–°å¼€å§‹
 		tx.begin();
 		User u3  = (User)session.get(User.class, 7);
-		System.out.println("ĞŞ¸ÄÇ°£º"+u3.getName());
-		u3.setName("Ğ¡ÁúÅ®");
+		System.out.println("ä¿®æ”¹å‰ï¼š"+u3.getName());
+		u3.setName("å°é¾™å¥³");
 		u3.setAge(120);
 		session.update(u3);
-		System.out.println("ĞŞ¸Äºó£º"+u3.getName());
-		tx.commit();//±¾Àı·Ö±ğÌá½»
+		System.out.println("ä¿®æ”¹åï¼š"+u3.getName());
+		tx.commit();//æœ¬ä¾‹åˆ†åˆ«æäº¤
 		session.close();
 		sf.close();
 	}

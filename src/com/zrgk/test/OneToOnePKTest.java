@@ -11,8 +11,8 @@ import com.zrgk.entity.Husband;
 import com.zrgk.entity.Wife;
 
 /**
- * Í¨¹ı×¢½â·½Ê½pojo-->table Hasband £¬Wife±í
- * ÒıÈëjar:
+ * é€šè¿‡æ³¨è§£æ–¹å¼pojo-->table Hasband ï¼ŒWifeè¡¨
+ * å¼•å…¥jar:
  *   persistence.jar
  *   hibernate-annotation-xx.jar
  *   
@@ -51,14 +51,14 @@ public class OneToOnePKTest {
 
 @Test
  public void testSchemaExport() {
-	//×¢½âÅäÖÃ·½Ê½£¬·Çscript xml½Å±¾
+	//æ³¨è§£é…ç½®æ–¹å¼ï¼Œéscript xmlè„šæœ¬
 	AnnotationConfiguration configure = new AnnotationConfiguration().configure();
 	SchemaExport schemaExport = new SchemaExport(configure);
 	schemaExport.create(false, true);
 /**
  * java.lang.NoClassDefFoundError: org/hibernate/annotations/common/AssertionFailure
- * ĞèÒªÒıÈëjar: hibernate-commons-annotations-xxx.Final.jar
- * java.lang.IncompatibleClassChangeError: Implementing class °ü³åÍ»  »¹Ã»ÕÒµ½Ô­Òò
+ * éœ€è¦å¼•å…¥jar: hibernate-commons-annotations-xxx.Final.jar
+ * java.lang.IncompatibleClassChangeError: Implementing class åŒ…å†²çª  è¿˜æ²¡æ‰¾åˆ°åŸå› 
 	
 
  */

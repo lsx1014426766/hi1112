@@ -5,8 +5,8 @@ import com.zrgk.entity.Emp;
 import com.zrgk.util.HibernateUtil1;
 
 
-//二级缓存(其实就是SessionFactory级别的缓存，默认是关闭的)
-//解决跨session访问 
+//浜岀骇缂撳瓨(鍏跺疄灏辨槸SessionFactory绾у埆鐨勭紦瀛橈紝榛樿鏄叧闂殑)
+//瑙ｅ喅璺╯ession璁块棶 
 public class TestSecondCache {
 	public static void main(String[] args) {
 		Session session = HibernateUtil1.getSession();

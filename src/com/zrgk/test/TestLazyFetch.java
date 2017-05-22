@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import com.zrgk.entity.Dept;
 import com.zrgk.util.HibernateUtil1;
 
-//ÔÚÅäÖÃÎÄ¼şÖĞÉèÖÃ±íDept lazyÊôĞÔÖµ£¬true or false ¿´ÔËĞĞÇé¿ö
+//åœ¨é…ç½®æ–‡ä»¶ä¸­è®¾ç½®è¡¨Dept lazyå±æ€§å€¼ï¼Œtrue or false çœ‹è¿è¡Œæƒ…å†µ
 public class TestLazyFetch {
 	public static void main(String[] args) {
 		Session session = HibernateUtil1.getSession();

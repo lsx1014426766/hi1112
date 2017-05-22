@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 /**
- *劣：这种方法，在每次操作时都要重新打开session
+ *鍔ｏ細杩欑鏂规硶锛屽湪姣忔鎿嶄綔鏃堕兘瑕侀噸鏂版墦寮�session
  * @author lsx
  *
  */
@@ -18,7 +18,7 @@ public class SessionUtils {
 	 Session session = (Session) sf.openSession();
 	 return session;
  }
- //获取事务
+ //鑾峰彇浜嬪姟
  public static Transaction getTransaction(){
 	Transaction ts = SessionUtils.getSession().beginTransaction();
 	 return ts;

@@ -7,41 +7,41 @@ import org.junit.Test;
 import com.zrgk.entity.Paper;
 import com.zrgk.entity.Student;
 import com.zrgk.util.HibernateUtil1;
-//Ñ§Éú---Ñ§ÉúÖ¤  Ò»¶ÔÒ»
+//å­¦ç”Ÿ---å­¦ç”Ÿè¯  ä¸€å¯¹ä¸€
 public class TestOneToOne {
 	@Test
 	public void testAdd() {
 		Session session = HibernateUtil1.getSession();
 		Student s = new Student();
 		s.setSex("m");
-		s.setSname("Ğ¦Ğ¦");
+		s.setSname("ç¬‘ç¬‘");
 		Paper p = new Paper();
-		p.setPdesc("Ğ¡Ñ§Éú");
-		// Ìí¼Ó¹ØÏµ Ë«Ïò¹ØÏµ
+		p.setPdesc("å°å­¦ç”Ÿ");
+		// æ·»åŠ å…³ç³» åŒå‘å…³ç³»
 		s.setPaper(p);
 		p.setStudent(s);
 		Transaction tx = session.beginTransaction();
 		session.save(s);
-		session.save(p);// Èç¹ûÉèÖÃÁË¼¶Áª£¬¾Í¿ÉÒÔ²»ÓÃÔÚÕâÀï²åÈëpÁË
+		session.save(p);// å¦‚æœè®¾ç½®äº†çº§è”ï¼Œå°±å¯ä»¥ä¸ç”¨åœ¨è¿™é‡Œæ’å…¥päº†
 		tx.commit();
 		HibernateUtil1.closeSession();
 	}
 
 	@Test
-	// ÉèÖÃÁË¼¶Áª
+	// è®¾ç½®äº†çº§è”
 	public void testAdd2() {
 		Session session = HibernateUtil1.getSession();
 		Student s = new Student();
 		s.setSex("m");
-		s.setSname("ÇàÇà");
+		s.setSname("é’é’");
 		Paper p = new Paper();
-		p.setPdesc("³õÖĞÉúÖ¤");
-		// Ìí¼Ó¹ØÏµ Ë«Ïò¹ØÏµ
+		p.setPdesc("åˆä¸­ç”Ÿè¯");
+		// æ·»åŠ å…³ç³» åŒå‘å…³ç³»
 		s.setPaper(p);
 		p.setStudent(s);
 		Transaction tx = session.beginTransaction();
 		session.save(s);
-		// session.save(p);//Èç¹ûÉèÖÃÁË¼¶Áª£¬¾Í¿ÉÒÔ²»ÓÃÔÚÕâÀï²åÈëpÁË
+		// session.save(p);//å¦‚æœè®¾ç½®äº†çº§è”ï¼Œå°±å¯ä»¥ä¸ç”¨åœ¨è¿™é‡Œæ’å…¥päº†
 		tx.commit();
 		HibernateUtil1.closeSession();
 	}

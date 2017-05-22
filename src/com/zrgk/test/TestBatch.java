@@ -5,7 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import com.zrgk.entity.Dept;
 
-//ÅúÁ¿²åÈë²Ù×÷
+//æ‰¹é‡æ’å…¥æ“ä½œ
 public class TestBatch {
 	public static void main(String[] args) {
 		Session session = new Configuration().configure().buildSessionFactory().openSession();
@@ -13,12 +13,12 @@ public class TestBatch {
 		for ( int i=1; i<=5; i++ ) {
 			Dept dept = new Dept();
 			dept.setDeptno(40+i);
-			dept.setDname("×éÖ¯"+i+"²¿");
-			dept.setLoc("Î÷°²"+i);
+			dept.setDname("ç»„ç»‡"+i+"éƒ¨");
+			dept.setLoc("è¥¿å®‰"+i);
 			session.save(dept);
-			if ( i % 5 == 0 ) { //µ¥´ÎÅúÁ¿²Ù×÷µÄÊıÄ¿Îª5,Óëhibenate.cfg.xmlÖĞµÄJDBCÅúÁ¿ÊıÉèÖÃÏàÍ¬
-				session.flush();//ÇåÀí»º´æ£¬Ö´ĞĞÅúÁ¿²åÈë5Ìõ¼ÇÂ¼µÄSQLÓï¾ä
-				session.clear();//Çå¿Õ»º´æÖĞµÄDept¶ÔÏó
+			if ( i % 5 == 0 ) { //å•æ¬¡æ‰¹é‡æ“ä½œçš„æ•°ç›®ä¸º5,ä¸hibenate.cfg.xmlä¸­çš„JDBCæ‰¹é‡æ•°è®¾ç½®ç›¸åŒ
+				session.flush();//æ¸…ç†ç¼“å­˜ï¼Œæ‰§è¡Œæ‰¹é‡æ’å…¥5æ¡è®°å½•çš„SQLè¯­å¥
+				session.clear();//æ¸…ç©ºç¼“å­˜ä¸­çš„Deptå¯¹è±¡
 			}
 		}  
 		tran.commit();
